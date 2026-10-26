@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment files (NEVER commit secrets)
+.env
+.env.local
+.env.production
+.env.staging
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.db
+.pytest_cache/
+
+# Storage & Evidence files (NEVER commit runtime vault artifacts)
+storage/evidence/*
+!storage/evidence/.gitkeep
+storage/artifacts/*
+!storage/artifacts/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+backend/storage/
+scratch/
+/evidence-storage/
+/uploads/
+/test_datasets/
+*.forensic-evidence
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
