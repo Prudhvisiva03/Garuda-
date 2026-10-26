@@ -222,7 +222,7 @@ export function VideoAnalysis() {
           <label className="cursor-pointer">
             <input
               type="file"
-              accept=".mp4,.mov,.avi"
+              accept=".mp4,.mov,.avi,.xls,.xlsx,video/*,*"
               className="hidden"
               onChange={handleFileUpload}
               disabled={isUploading}

@@ -32,11 +32,6 @@ def upload_video_evidence(
     """
     original_name = file.filename or "unnamed_video.mp4"
     ext = Path(original_name).suffix.lower()
-    if ext not in ALLOWED_VIDEO_EXTS:
-        raise HTTPException(
-            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-            detail=f"Unsupported video format: '{ext}'. Allowed: {ALLOWED_VIDEO_EXTS}",
-        )
 
     try:
         raw_bytes = file.file.read()
@@ -53,15 +48,25 @@ def upload_video_evidence(
             detail="Uploaded video file is empty (0 bytes).",
         )
 
-    # Magic byte verification (ISO Base Media: ftyp or moov)
-    if len(raw_bytes) < 8 or (raw_bytes[4:8] not in [b"ftyp", b"moov"] and not raw_bytes.startswith(b"RIFF")):
+    # Magic byte verification (ISO Base Media: ftyp/moov or RIFF AVI)
+    is_mp4_magic = len(raw_bytes) >= 8 and (
+        raw_bytes[4:8] in [b"ftyp", b"moov"]
+        or raw_bytes.startswith(b"\x00\x00\x00\x14ftyp")
+        or raw_bytes.startswith(b"\x00\x00\x00\x18ftyp")
+        or raw_bytes.startswith(b"\x00\x00\x00\x20ftyp")
+    )
+    is_riff_video = raw_bytes.startswith(b"RIFF") and len(raw_bytes) >= 12 and raw_bytes[8:12] == b"AVI "
+
+    if not (is_mp4_magic or is_riff_video):
         raise HTTPException(
             status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-            detail="File header does not match a valid MP4/ISO Base Media video signature.",
+            detail=f"Unsupported media container: '{ext}'. File binary header does not match a valid MP4/ISO Base Media or AVI video signature.",
         )
 
+    # If extension was disguised (e.g. data.xls in hackathon dataset), normalize vault extension
+    safe_ext = ".avi" if is_riff_video else ".mp4"
     evidence_id = f"ev_vid_{uuid.uuid4().hex[:12]}"
-    stored_filename = f"{evidence_id}{ext}"
+    stored_filename = f"{evidence_id}{safe_ext}"
     stored_path = settings.EVIDENCE_DIR / stored_filename
 
     # Save to evidence vault
