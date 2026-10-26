@@ -48,4 +48,6 @@ scratch/
 npm-debug.log*
 
 # Test coverage
+cloudflared.exe
+
 coverage/
