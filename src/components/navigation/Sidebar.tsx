@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
+  Presentation as PresentationIcon,
   Briefcase,
   FileSearch,
   Microscope,
@@ -27,6 +28,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Dashboard', path: '/', icon: LayoutDashboard },
+  { label: 'Presentation (PPT)', path: '/presentation', icon: PresentationIcon },
   { label: 'Cases', path: '/cases', icon: Briefcase },
   { label: 'Evidence', path: '/evidence', icon: FileSearch },
   { label: 'Image Analysis', path: '/analysis', icon: Microscope },

@@ -9,8 +9,13 @@ import { AudioAnalysis } from '@/pages/AudioAnalysis';
 import { Reports } from '@/pages/Reports';
 import { AuditTrail } from '@/pages/AuditTrail';
 import { Settings } from '@/pages/Settings';
+import { Presentation } from '@/pages/Presentation';
 
 export const router = createBrowserRouter([
+  {
+    path: '/presentation',
+    element: <Presentation />,
+  },
   {
     path: '/',
     element: <AppLayout />,
