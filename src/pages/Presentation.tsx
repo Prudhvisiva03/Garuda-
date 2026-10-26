@@ -24,7 +24,6 @@ import { Badge } from '@/components/ui/Badge';
 export function Presentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [showNotes, setShowNotes] = useState(true);
   const navigate = useNavigate();
 
   const totalSlides = 4;
@@ -108,17 +107,6 @@ export function Presentation() {
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-
-          <button
-            onClick={() => setShowNotes(!showNotes)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-              showNotes
-                ? 'bg-cyan-950/60 border-cyan-500/50 text-cyan-300'
-                : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-white'
-            }`}
-          >
-            {showNotes ? 'Hide Speaker Notes' : 'Show Speaker Notes'}
-          </button>
 
           <button
             onClick={toggleFullscreen}
@@ -420,39 +408,6 @@ export function Presentation() {
           )}
         </div>
       </main>
-
-      {/* Speaker Notes Teleprompter (Bottom Panel) */}
-      {showNotes && (
-        <footer className="border-t border-slate-800 bg-slate-900/95 backdrop-blur-md px-6 py-4 z-30 transition-all">
-          <div className="max-w-6xl mx-auto flex items-start gap-4">
-            <div className="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-800 text-[10px] font-mono font-bold text-cyan-300 uppercase tracking-wider flex-shrink-0 mt-0.5">
-              Speaker Script (Slide 0{currentSlide + 1})
-            </div>
-            <p className="text-xs md:text-sm text-slate-200 leading-relaxed font-sans">
-              {currentSlide === 0 && (
-                <>
-                  <strong className="text-cyan-300">Spoken Words:</strong> "Respected judges, we are Team Garuda, Team ID <strong>CH26-RQKN</strong>. Today, we present our solution for <strong>PS-05: Digital Evidence Authenticity and Integrity Verification Platform</strong>. Digital evidence in modern trials is vulnerable to Photoshop, frame manipulation, and AI voice cloning. Garuda is a complete multi-modal forensic platform that protects evidence integrity and generates legally valid Section 65B certificates."
-                </>
-              )}
-              {currentSlide === 1 && (
-                <>
-                  <strong className="text-cyan-300">Spoken Words:</strong> "A key innovation in Garuda is our <strong>Anti-Spoofing Magic Byte Inspector</strong>. When testing the hackathon dataset, we discovered <code>data.xls</code>. While standard tools crashed expecting a spreadsheet, Garuda inspected the binary headers and discovered <code>66 74 79 70</code>—unmasking it as an MP4 video disguised as an Excel sheet! Combined with our double SHA-256 verification and immutable audit trail, Garuda provides zero-trust forensic security."
-                </>
-              )}
-              {currentSlide === 2 && (
-                <>
-                  <strong className="text-cyan-300">Spoken Words:</strong> "We tested Garuda against all official hackathon evidence. On <code>Image-2</code>, our SIFT algorithm and Error Level Analysis pinpointed the exact cropped and pasted object with 96% confidence. On <code>Video-2</code>, our Bhattacharyya distance algorithm caught the deleted frames at Frame 144 and flagged the night-vision filter. And on <code>Cyber voice 6</code>, our STFT spectrogram uncovered the unnaturally rigid pitch harmonics of an AI deepfake voice."
-                </>
-              )}
-              {currentSlide === 3 && (
-                <>
-                  <strong className="text-cyan-300">Spoken Words:</strong> "Finally, forensic analysis must be legally admissible. Under Section 65B of the Indian Evidence Act, Garuda automatically compiles the entire examination, hardware hashes, and findings into an official PDF report that investigators can directly submit in court. Now, let us switch directly to the live platform to demonstrate these capabilities in real-time!"
-                </>
-              )}
-            </p>
-          </div>
-        </footer>
-      )}
     </div>
   );
 }
