@@ -1,4 +1,5 @@
 import io
+import uuid
 import pytest
 from fastapi.testclient import TestClient
 from backend.app.main import app
@@ -8,7 +9,7 @@ client = TestClient(app)
 
 def test_case_crud_and_evidence_linking():
     # 1. Create a case
-    case_no = "FIR-2026-TEST-999"
+    case_no = f"FIR-2026-TEST-{uuid.uuid4().hex[:6].upper()}"
     create_res = client.post("/api/v1/cases", json={
         "case_number": case_no,
         "title": "Unit Test Investigation Case",

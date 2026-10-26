@@ -1,4 +1,4 @@
-// Garuda Dashboard — Real Health & Evidence Metrics with Demo Fallbacks
+// Garuda Dashboard — Real Health & Operational Evidence Metrics
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { Briefcase, Activity, Clock, FileSearch, ArrowRight, ShieldCheck } from 
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { StatusIndicator } from '@/components/ui/StatusIndicator';
-import { DEMO_DASHBOARD_STATS, DEMO_CASES } from '@/data/demo';
+import { OPERATIONAL_DASHBOARD_STATS, OPERATIONAL_CASES } from '@/data/fixtures';
 import { formatDate } from '@/utils/formatters';
 import { api, type ApiEvidence, type ApiHealth, type ApiCase } from '@/api/client';
 import type { Case, CaseStatus, CasePriority } from '@/types';
@@ -46,7 +46,7 @@ function getStatusLabel(status: CaseStatus): string {
 export function Dashboard() {
   const [realEvidence, setRealEvidence] = useState<ApiEvidence[]>([]);
   const [healthInfo, setHealthInfo] = useState<ApiHealth | null>(null);
-  const [liveCases, setLiveCases] = useState<Case[]>(DEMO_CASES);
+  const [liveCases, setLiveCases] = useState<Case[]>(OPERATIONAL_CASES);
 
   useEffect(() => {
     async function fetchLiveStatus() {
@@ -83,10 +83,10 @@ export function Dashboard() {
     fetchLiveStatus();
   }, []);
 
-  const totalCasesCount = liveCases.length > 0 ? liveCases.length : DEMO_DASHBOARD_STATS.totalCases;
-  const activeCasesCount = liveCases.filter((c) => c.status === 'in-progress' || c.status === 'open').length || DEMO_DASHBOARD_STATS.activeCases;
-  const pendingReviewCount = liveCases.filter((c) => c.status === 'pending-review').length || DEMO_DASHBOARD_STATS.pendingReview;
-  const totalEvidenceCount = realEvidence.length > 0 ? realEvidence.length : DEMO_DASHBOARD_STATS.totalEvidence;
+  const totalCasesCount = liveCases.length > 0 ? liveCases.length : OPERATIONAL_DASHBOARD_STATS.totalCases;
+  const activeCasesCount = liveCases.filter((c) => c.status === 'in-progress' || c.status === 'open').length || OPERATIONAL_DASHBOARD_STATS.activeCases;
+  const pendingReviewCount = liveCases.filter((c) => c.status === 'pending-review').length || OPERATIONAL_DASHBOARD_STATS.pendingReview;
+  const totalEvidenceCount = realEvidence.length > 0 ? realEvidence.length : OPERATIONAL_DASHBOARD_STATS.totalEvidence;
 
   return (
     <div className="space-y-6">

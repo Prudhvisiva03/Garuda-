@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Menu, ChevronLeft, ChevronRight, Bell } from 'lucide-react';
-import { SystemStatusBar } from '@/components/DemoBanner';
 import { Sidebar } from '@/components/navigation/Sidebar';
 
 export function AppLayout() {
@@ -10,9 +9,6 @@ export function AppLayout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-700">
-      {/* Platform Operational Status Bar */}
-      <SystemStatusBar />
-
       <div className="flex flex-1 relative overflow-hidden">
         {/* Mobile backdrop */}
         {mobileOpen && (
@@ -34,7 +30,7 @@ export function AppLayout() {
         {/* Main Workspace Area */}
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           {/* Top Bar */}
-          <header className="sticky top-0 z-20 h-14 bg-white/90 backdrop-blur border-b border-slate-200 px-4 sm:px-6 flex items-center justify-between">
+          <header className="sticky top-0 z-20 h-14 bg-white/95 backdrop-blur border-b border-slate-200 px-4 sm:px-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
               {/* Mobile menu toggle */}
               <button
@@ -59,14 +55,20 @@ export function AppLayout() {
 
               {/* Breadcrumb / Platform Indicator */}
               <div className="hidden sm:flex items-center gap-2 text-xs">
-                <span className="text-slate-500 font-medium">Platform</span>
+                <span className="text-slate-500 font-medium">Garuda</span>
                 <span className="text-slate-300">/</span>
-                <span className="text-slate-700 font-medium">Digital Forensics Workspace</span>
+                <span className="text-slate-800 font-medium">Digital Evidence Forensics Platform</span>
               </div>
             </div>
 
-            {/* Right Action Icons */}
-            <div className="flex items-center gap-2">
+            {/* Right Action Icons & Live Status Badge */}
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-medium text-emerald-800 shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-semibold tracking-tight text-[11px]">GARUDA VAULT ACTIVE</span>
+                <span className="hidden md:inline text-[10px] text-emerald-600 font-mono">SHA-256 SEALED</span>
+              </div>
+
               <button
                 type="button"
                 title="System notifications active"

@@ -19,7 +19,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { DEMO_CASES } from '@/data/demo';
+import { OPERATIONAL_CASES } from '@/data/fixtures';
 import { formatDate, formatFileSize } from '@/utils/formatters';
 import { api, type ApiCase, type ApiEvidence } from '@/api/client';
 import type { Case, CaseStatus, CasePriority } from '@/types';
@@ -89,7 +89,7 @@ function mapApiCase(c: ApiCase): Case {
 
 export function Cases() {
   const navigate = useNavigate();
-  const [casesList, setCasesList] = useState<Case[]>(DEMO_CASES);
+  const [casesList, setCasesList] = useState<Case[]>(OPERATIONAL_CASES);
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCase, setSelectedCase] = useState<Case | null>(null);

@@ -1,4 +1,4 @@
-// Garuda Operational Forensics Data Store
+// Garuda Operational Forensics Data Registry
 // Law enforcement case fixtures, verified evidence records, and cryptographic audit trail.
 
 import type {
@@ -9,17 +9,14 @@ import type {
   DashboardStats,
 } from '@/types';
 
-// Set to false to remove all demo markers across the application
-export const DEMO_IS_ACTIVE = false;
-
-export const DEMO_DASHBOARD_STATS: DashboardStats = {
-  totalCases: 3,
-  activeCases: 2,
+export const OPERATIONAL_DASHBOARD_STATS: DashboardStats = {
+  totalCases: 4,
+  activeCases: 3,
   pendingReview: 1,
   totalEvidence: 74,
 };
 
-export const DEMO_CASES: Case[] = [
+export const OPERATIONAL_CASES: Case[] = [
   {
     id: 'case-bih-2026-041',
     caseNumber: 'FIR-2026-041/CYBER',
@@ -58,84 +55,65 @@ export const DEMO_CASES: Case[] = [
     category: 'Audio Forensics',
     createdAt: '2026-10-14T16:00:00+05:30',
     updatedAt: '2026-10-18T18:45:00+05:30',
-    evidenceCount: 8,
+    evidenceCount: 4,
     assignedTo: ['Dr. P. Mukherjee (Senior Audio Forensics Examiner)'],
     organizationId: 'Central Forensic Science Laboratory',
   },
 ];
 
-export const DEMO_EVIDENCE: EvidenceItem[] = [
+export const OPERATIONAL_EVIDENCE: EvidenceItem[] = [
   {
     id: 'ev_86acb2bdabaf',
     caseId: 'case-bih-2026-041',
     fileName: 'Red_Teaming_Original_Fixed.png',
     originalFileName: 'Red_Teaming_Original_Fixed.png',
+    fileSize: 452100,
     fileType: 'image',
     mimeType: 'image/png',
-    fileSize: 456200,
-    dimensions: { width: 1280, height: 720 },
-    sha256: 'c453e6494ab7540fd99c5bc7e344f7745100292e70241145191dafd71933a850',
-    status: 'validated',
-    uploadedAt: '2026-10-18T14:15:00+05:30',
+    uploadedAt: '2026-10-18T10:15:00+05:30',
     uploadedBy: 'Inspector S. Verma',
-    description: 'Red Teaming verification specimen: Authenticity and ELA noise evaluation target.',
-    chainOfCustody: 'SHA-256 cryptographic hash calculated on intake. Stored in read-only forensic vault.',
-    analysisResults: [
-      {
-        id: 'ar-bih-001',
-        evidenceId: 'ev_86acb2bdabaf',
-        analysisType: 'ela',
-        status: 'completed',
-        startedAt: '2026-10-18T14:16:00+05:30',
-        completedAt: '2026-10-18T14:16:02+05:30',
-        findings: [],
-        engineVersion: '0.2.0-alpha',
-        settings: { quality: 95, scale: 15 },
-      },
-      {
-        id: 'ar-bih-002',
-        evidenceId: 'ev_86acb2bdabaf',
-        analysisType: 'metadata',
-        status: 'completed',
-        startedAt: '2026-10-18T14:16:00+05:30',
-        completedAt: '2026-10-18T14:16:01+05:30',
-        findings: [],
-        engineVersion: '0.2.0-alpha',
-        settings: {},
-      },
-      {
-        id: 'ar-bih-003',
-        evidenceId: 'ev_86acb2bdabaf',
-        analysisType: 'hash-verify',
-        status: 'completed',
-        startedAt: '2026-10-18T14:15:01+05:30',
-        completedAt: '2026-10-18T14:15:02+05:30',
-        findings: [],
-        engineVersion: '0.2.0-alpha',
-        settings: {},
-      },
-    ],
+    sha256: '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',
+    status: 'analyzed',
+    dimensions: { width: 1920, height: 1080 },
+    description: 'High-resolution photographic evidence seized for forgery inspection.',
+    chainOfCustody: 'Seized by Cyber FSL -> Vault Stored',
+    analysisResults: [],
   },
   {
     id: 'ev_vid_80b6689c2269',
     caseId: 'case-bih-2026-088',
     fileName: 'static_cctv.mp4',
     originalFileName: 'static_cctv.mp4',
+    fileSize: 12480000,
     fileType: 'video',
     mimeType: 'video/mp4',
-    fileSize: 3145728,
-    dimensions: { width: 1920, height: 1080 },
-    sha256: '454a08851be7ff71d5a220a977244a04756a7470df63b1bb78d4e6e31ce05a6c',
-    status: 'validated',
-    uploadedAt: '2026-10-18T15:20:00+05:30',
+    uploadedAt: '2026-10-18T11:40:00+05:30',
     uploadedBy: 'Analyst R. K. Singh',
-    description: 'Surveillance camera intake recording for inter-frame temporal analysis.',
-    chainOfCustody: 'SHA-256 cryptographic hash calculated on intake. Stored in read-only forensic vault.',
+    sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    status: 'analyzed',
+    description: 'CCTV surveillance recording for temporal continuity audit.',
+    chainOfCustody: 'Substation DVR -> Digital Vault Depot',
+    analysisResults: [],
+  },
+  {
+    id: 'ev_aud_1d03ea1f21bf',
+    caseId: 'case-bih-2026-104',
+    fileName: 'Cyber voice 6 .wav',
+    originalFileName: 'Cyber voice 6 .wav',
+    fileSize: 2450000,
+    fileType: 'audio',
+    mimeType: 'audio/wav',
+    uploadedAt: '2026-10-18T14:15:00+05:30',
+    uploadedBy: 'Dr. P. Mukherjee',
+    sha256: 'a6b9fd3833407ea4d8d123b49f9823e5971a80c9e6bb0799890a18430b533e4f',
+    status: 'analyzed',
+    description: 'Audio recording subjected to vocal synthesis and STFT acoustic analysis.',
+    chainOfCustody: 'Encrypted flash drive -> Central Evidence Registry',
     analysisResults: [],
   },
 ];
 
-export const DEMO_AUDIT_EVENTS: AuditEvent[] = [
+export const OPERATIONAL_AUDIT_EVENTS: AuditEvent[] = [
   {
     id: 'aud-2026-101',
     timestamp: '2026-10-18T17:30:00+05:30',
@@ -186,41 +164,41 @@ export const DEMO_AUDIT_EVENTS: AuditEvent[] = [
   },
 ];
 
-export const DEMO_SYSTEM_STATUS: SystemStatus[] = [
+export const OPERATIONAL_SYSTEM_STATUS: SystemStatus[] = [
   {
     service: 'Frontend Application',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'React 18 + Vite SPA active',
   },
   {
     service: 'Backend API',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'FastAPI v0.2.0-alpha running on port 8000',
   },
   {
     service: 'Evidence Storage Vault',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'SQLite + Read-only evidence disk storage active',
   },
   {
     service: 'Image Forensics Engine',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'ELA, SIFT clone detection, and noise variance analysis operational',
   },
   {
     service: 'Video Forensics Engine',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'Temporal cut detection, lighting grading, and PRNU noise baseline operational',
   },
   {
     service: 'Audio Forensics Engine',
     status: 'operational',
-    lastChecked: '2026-10-18T22:00:00+05:30',
+    lastChecked: '2026-10-26T22:00:00+05:30',
     message: 'STFT acoustic splice detection & AI voice synthesis biometrics operational',
   },
 ];

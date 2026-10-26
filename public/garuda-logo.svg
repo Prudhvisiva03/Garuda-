@@ -1,7 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-  <path d="M16 2.5L4.5 7.5V15.5C4.5 22.13 9.37 28.23 16 29.5C22.63 28.23 27.5 22.13 27.5 15.5V7.5L16 2.5Z" fill="#f0f9ff" stroke="#0891b2" stroke-width="1.5" stroke-linejoin="round"/>
-  <circle cx="14.5" cy="14" r="4.5" stroke="#0891b2" stroke-width="1.5" fill="none"/>
-  <line x1="18" y1="17.5" x2="21.5" y2="21" stroke="#0891b2" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="12.5" y1="14" x2="16.5" y2="14" stroke="#0e7490" stroke-width="0.75" stroke-linecap="round" opacity="0.7"/>
-  <line x1="14.5" y1="12" x2="14.5" y2="16" stroke="#0e7490" stroke-width="0.75" stroke-linecap="round" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Cyan Cyber Gradient -->
+    <linearGradient id="garudaCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Amber Gold Flame Gradient -->
+    <linearGradient id="garudaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Shield Background Gradient -->
+    <linearGradient id="garudaShieldBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Wing Left Gradient -->
+    <linearGradient id="wingGradL" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <!-- Wing Right Gradient -->
+    <linearGradient id="wingGradR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="coreGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer Protective Forensic Shield -->
+  <path
+    d="M50 4 L88 18 V46 C88 68 50 94 50 94 C50 94 12 68 12 46 V18 L50 4 Z"
+    fill="url(#garudaShieldBg)"
+    stroke="url(#garudaCyan)"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+
+  <!-- Subtle Shield Inner Trim -->
+  <path
+    d="M50 8 L83 21 V45 C83 64 50 88 50 88 C50 88 17 64 17 45 V21 L50 8 Z"
+    stroke="#1e293b"
+    stroke-width="1"
+    fill="none"
+    opacity="0.8"
+  />
+
+  <!-- GARUDA WINGS: Swept-back aerodynamic forensic feathers -->
+  <!-- Left Wing -->
+  <!-- Feather 1 (Top / Outermost) -->
+  <path
+    d="M48 24 C38 14 26 13 14 19 C21 27 34 30 48 31 Z"
+    fill="url(#wingGradL)"
+    opacity="0.95"
+  />
+  <!-- Feather 2 (Middle) -->
+  <path
+    d="M48 33 C36 27 24 28 15 36 C23 41 35 41 48 41 Z"
+    fill="url(#wingGradL)"
+  />
+  <!-- Feather 3 (Lower) -->
+  <path
+    d="M48 43 C38 40 28 42 19 50 C27 52 38 49 48 49 Z"
+    fill="url(#wingGradL)"
+    opacity="0.9"
+  />
+
+  <!-- Right Wing -->
+  <!-- Feather 1 (Top / Outermost) -->
+  <path
+    d="M52 24 C62 14 74 13 86 19 C79 27 66 30 52 31 Z"
+    fill="url(#wingGradR)"
+    opacity="0.95"
+  />
+  <!-- Feather 2 (Middle) -->
+  <path
+    d="M52 33 C64 27 76 28 85 36 C77 41 65 41 52 41 Z"
+    fill="url(#wingGradR)"
+  />
+  <!-- Feather 3 (Lower) -->
+  <path
+    d="M52 43 C62 40 72 42 81 50 C73 52 62 49 52 49 Z"
+    fill="url(#wingGradR)"
+    opacity="0.9"
+  />
+
+  <!-- GARUDA HEAD & CROWN: Vigilant raptor crest & sharp beak -->
+  <!-- Golden Crown Peak -->
+  <path
+    d="M50 11 L54 18 L50 20 L46 18 Z"
+    fill="url(#garudaGold)"
+    filter="url(#coreGlow)"
+  />
+  <!-- Crown Side Feathers -->
+  <path d="M46 18 L41 15 L43 21 Z" fill="url(#garudaGold)" opacity="0.85" />
+  <path d="M54 18 L59 15 L57 21 Z" fill="url(#garudaGold)" opacity="0.85" />
+
+  <!-- Raptor Brow & Face Mask -->
+  <path
+    d="M45 20 L50 22 L55 20 L56 26 L50 33 L44 26 Z"
+    fill="#0f172a"
+    stroke="url(#garudaCyan)"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+
+  <!-- Sharp Golden Beak -->
+  <path
+    d="M48 26 L52 26 L50 34 Z"
+    fill="url(#garudaGold)"
+  />
+
+  <!-- Piercing Eyes (Keen Sight Forensics) -->
+  <circle cx="47" cy="24" r="1.2" fill="#22d3ee" />
+  <circle cx="53" cy="24" r="1.2" fill="#22d3ee" />
+
+  <!-- FORENSIC INSPECTION CORE & CRYPTOGRAPHIC SEAL -->
+  <!-- Outer Focus Ring -->
+  <circle
+    cx="50"
+    cy="64"
+    r="16"
+    stroke="url(#garudaCyan)"
+    stroke-width="1.5"
+    stroke-dasharray="2 1.5"
+    fill="#0f172a"
+    fill-opacity="0.6"
+  />
+
+  <!-- Inner Ring -->
+  <circle
+    cx="50"
+    cy="64"
+    r="11"
+    stroke="#0284c7"
+    stroke-width="1"
+    stroke-opacity="0.7"
+  />
+
+  <!-- Precision Crosshairs -->
+  <line x1="50" y1="46" x2="50" y2="52" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="50" y1="76" x2="50" y2="82" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="32" y1="64" x2="38" y2="64" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="62" y1="64" x2="68" y2="64" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Cryptographic Node Diamond (SHA-256 Vault Sealing Core) -->
+  <path
+    d="M50 56 L58 64 L50 72 L42 64 Z"
+    fill="url(#garudaGold)"
+    filter="url(#coreGlow)"
+  />
+
+  <!-- Radiant Inner Pupil -->
+  <circle cx="50" cy="64" r="3" fill="#0f172a" />
+  <circle cx="50" cy="64" r="1.5" fill="#fef08a" />
 </svg>

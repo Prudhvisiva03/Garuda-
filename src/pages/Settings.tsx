@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { Tabs } from '@/components/ui/Tabs';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
-import { ShieldCheck, Info, Key } from 'lucide-react';
+import { Info, Key } from 'lucide-react';
 
 const activeSecurityStandards = [
   'SHA-256 Immediate Evidence Checksum Calculation',
@@ -120,9 +120,9 @@ export function Settings() {
       {activeTab === 'about' && (
         <Card title="About Garuda">
           <div className="space-y-4 max-w-xl">
-            <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-              <div className="w-10 h-10 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="flex items-center gap-3.5 pb-3 border-b border-slate-100">
+              <div className="w-12 h-12 rounded-xl bg-slate-950 border border-cyan-500/30 p-1.5 shadow-xs flex items-center justify-center">
+                <img src="/garuda-logo.svg" alt="Garuda Forensics" className="w-9 h-9 object-contain" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-slate-900">Garuda</h3>

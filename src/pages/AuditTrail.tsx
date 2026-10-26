@@ -4,13 +4,13 @@
 import { useState, useEffect } from 'react';
 import { ShieldCheck, Filter } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { DEMO_AUDIT_EVENTS } from '@/data/demo';
+import { OPERATIONAL_AUDIT_EVENTS } from '@/data/fixtures';
 import { formatDateTime } from '@/utils/formatters';
 import { api } from '@/api/client';
 import type { AuditEvent } from '@/types';
 
 export function AuditTrail() {
-  const [eventsList, setEventsList] = useState<AuditEvent[]>(DEMO_AUDIT_EVENTS);
+  const [eventsList, setEventsList] = useState<AuditEvent[]>(OPERATIONAL_AUDIT_EVENTS);
   const [filterAction, setFilterAction] = useState<string>('all');
   const [showFilterMenu, setShowFilterMenu] = useState(false);
 

@@ -22,7 +22,6 @@ import { Tabs } from '@/components/ui/Tabs';
 import { StatusIndicator } from '@/components/ui/StatusIndicator';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ImageComparisonWorkbench } from '@/components/ImageComparisonWorkbench';
-import { DEMO_EVIDENCE, DEMO_CASES } from '@/data/demo';
 import { formatFileSize, formatDate } from '@/utils/formatters';
 import { api, type ApiEvidence, type ApiFullAnalysis, type ApiIntegrityCheck } from '@/api/client';
 
@@ -70,23 +69,22 @@ export function ImageAnalysis() {
     async function loadEvidence() {
       try {
         const items = await api.listEvidence();
-        setEvidenceList(items);
+        // Filter strictly to image MIME types (excludes video/audio files)
+        const imageItems = items.filter((it) => it.mime_type.startsWith('image/'));
+        setEvidenceList(imageItems);
 
-        if (items.length > 0) {
+        if (imageItems.length > 0) {
           if (queryEvidenceId) {
-            const found = items.find((it) => it.id === queryEvidenceId);
-            if (found) {
-              setSelectedEvidence(found);
-            } else {
-              setSelectedEvidence(items[0]);
-            }
+            const found = imageItems.find((it) => it.id === queryEvidenceId);
+            setSelectedEvidence(found || imageItems[0]);
           } else {
-            setSelectedEvidence(items[0]);
+            setSelectedEvidence(imageItems[0]);
           }
+        } else {
+          setSelectedEvidence(null);
         }
       } catch (err) {
-        // Backend might be offline; fall back cleanly to demo record
-        console.warn('Backend not accessible, falling back to demo state:', err);
+        console.warn('Backend not accessible:', err);
       }
     }
     loadEvidence();
@@ -185,19 +183,16 @@ export function ImageAnalysis() {
     }
   };
 
-  // Using real evidence if available, otherwise demo fallback
+  // Real evidence state
   const isRealEvidence = Boolean(selectedEvidence);
-  const demoFallback = DEMO_EVIDENCE[0];
-  const relatedCase = DEMO_CASES[0];
-
-  const currentFileName = selectedEvidence ? selectedEvidence.original_filename : demoFallback.fileName;
-  const currentUploadDate = selectedEvidence ? selectedEvidence.created_at : demoFallback.uploadedAt;
-  const currentDimensions = selectedEvidence
+  const currentFileName = selectedEvidence?.original_filename || 'No Evidence Loaded';
+  const currentUploadDate = selectedEvidence?.created_at || '';
+  const currentDimensions = selectedEvidence?.width && selectedEvidence?.height
     ? `${selectedEvidence.width} × ${selectedEvidence.height} px`
-    : `${demoFallback.dimensions?.width} × ${demoFallback.dimensions?.height} px`;
-  const currentFileSize = selectedEvidence ? selectedEvidence.file_size : demoFallback.fileSize;
-  const currentMime = selectedEvidence ? selectedEvidence.mime_type : demoFallback.mimeType;
-  const currentHash = selectedEvidence ? selectedEvidence.sha256_intake : null;
+    : 'Unknown Dimensions';
+  const currentFileSize = selectedEvidence?.file_size || 0;
+  const currentMime = selectedEvidence?.mime_type || 'image/jpeg';
+  const currentHash = selectedEvidence?.sha256_intake || null;
 
   const analysisTabs = [
     { id: 'ela', label: 'Error Level Analysis (ELA)' },
@@ -278,6 +273,23 @@ export function ImageAnalysis() {
           initialReferenceId={queryRefId || selectedEvidence?.id}
           initialCandidateId={queryCandId}
         />
+      ) : evidenceList.length === 0 ? (
+        <div className="bg-white border border-slate-200 rounded-lg p-10 text-center shadow-xs">
+          <div className="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 mx-auto mb-4">
+            <ImageIcon className="w-7 h-7" />
+          </div>
+          <h3 className="text-base font-semibold text-slate-900">No Image Evidence in Vault</h3>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1.5 max-w-md mx-auto">
+            Upload authentic photographic evidence (JPEG, PNG) at the Evidence Intake Desk to run deterministic Error Level Analysis (ELA), noise residual extraction, and court-admissible Section 65B forensic reports.
+          </p>
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <Link to="/evidence">
+              <Button variant="primary" size="sm" leftIcon={<ExternalLink className="w-3.5 h-3.5" />}>
+                Go to Evidence Intake Desk
+              </Button>
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="space-y-6">
           {/* Evidence Selector Bar */}
@@ -339,7 +351,7 @@ export function ImageAnalysis() {
               <div className="flex items-center gap-1.5">
                 <span>Case:</span>
                 <span className="font-medium text-slate-700">
-                  {selectedEvidence ? selectedEvidence.case_id : `${relatedCase.caseNumber} — ${relatedCase.title}`}
+                  {selectedEvidence?.case_id || 'General Forensic Intake'}
                 </span>
               </div>
               <span className="text-slate-300 hidden sm:inline">•</span>

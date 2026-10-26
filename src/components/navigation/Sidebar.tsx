@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import {
-  Shield,
   LayoutDashboard,
   Briefcase,
   FileSearch,
@@ -52,13 +51,13 @@ export function Sidebar({ collapsed, mobileOpen, onMobileClose }: SidebarProps) 
       {/* Brand / Logo Area */}
       <div className="h-14 px-4 flex items-center justify-between border-b border-slate-200">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-8 h-8 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 flex-shrink-0">
-            <Shield className="w-4 h-4" />
+          <div className="w-9 h-9 rounded-xl bg-slate-950 border border-cyan-500/30 shadow-xs flex items-center justify-center flex-shrink-0 p-1 overflow-hidden group">
+            <img src="/garuda-logo.svg" alt="Garuda Forensics" className="w-7 h-7 object-contain transition-transform group-hover:scale-105" />
           </div>
           {(!collapsed || mobileOpen) && (
             <div className="flex flex-col min-w-0">
               <span className="text-sm font-bold text-slate-900 tracking-wide truncate">Garuda</span>
-              <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase">Forensics</span>
+              <span className="text-[10px] text-cyan-600 font-mono font-semibold tracking-wider uppercase">Forensics</span>
             </div>
           )}
         </div>
