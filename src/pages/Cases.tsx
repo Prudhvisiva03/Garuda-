@@ -1,4 +1,4 @@
-// EviSutra Law Enforcement Case Management
+// Garuda Law Enforcement Case Management
 // Operational evidence case tracking, drill-down vault inspection, and multi-modal digital forensics registry.
 
 import { useState, useEffect } from 'react';

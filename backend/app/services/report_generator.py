@@ -151,7 +151,7 @@ def generate_pdf_report(
     # --- Header ---
     header_data = [
         [
-            Paragraph("<b>EviSutra</b> | Digital Forensics Laboratory", title_style),
+            Paragraph("<b>Garuda</b> | Digital Forensics Laboratory", title_style),
             Paragraph(f"<b>Report ID:</b> {report_id}<br/><b>Generated:</b> {generated_at}", subtitle_style),
         ]
     ]
@@ -390,7 +390,7 @@ def generate_pdf_report(
     # --- Signature & Sign-Off ---
     signoff_text = (
         "<b>LEGAL & FORENSIC ADMISSIBILITY DISCLAIMER:</b><br/>"
-        "This examination report was generated programmatically by the EviSutra Digital Forensics Suite v0.2.0. "
+        "This examination report was generated programmatically by the Garuda Digital Forensics Suite v0.2.0. "
         "The cryptographic hash proves byte integrity relative to the point of intake only. "
         "The automated analyses (ELA, EXIF, and noise variance) provide investigative indicators for qualified forensic examiner review "
         "and do not constitute an autonomous guarantee of authenticity or court admissibility under Indian Evidence Act Section 65B "
@@ -514,7 +514,7 @@ def generate_video_pdf_report(
 
     # Title & Header
     header_html = (
-        "<b>EVISUTRA DIGITAL EVIDENCE EXAMINATION REPORT</b><br/>"
+        "<b>GARUDA DIGITAL EVIDENCE EXAMINATION REPORT</b><br/>"
         "<font size=10 color='#0891b2'>Forensic Video Analysis & Temporal Continuity Audit</font>"
     )
     meta_html = (
@@ -707,7 +707,7 @@ def generate_video_pdf_report(
 
     disclaimer = (
         "<b>SWGDE & ISO/IEC 27037 FORENSIC ADMISSIBILITY STATEMENT:</b><br/>"
-        "This video examination report was generated programmatically by the EviSutra Digital Forensics Suite v0.2.0. "
+        "This video examination report was generated programmatically by the Garuda Digital Forensics Suite v0.2.0. "
         "Cryptographic digests substantiate that the byte stream examined was identical to the evidence deposited at intake. "
         "Temporal cut detections and color grading analysis provide empirical technical measurements for certified forensic video examiner review "
         "and do not constitute an autonomous claim of criminal intent or court presentation without qualified expert witness testimony under Indian Evidence Act Section 65B."
@@ -808,7 +808,7 @@ def generate_audio_pdf_report(
     story = []
 
     # Title Banner
-    story.append(Paragraph("EviSutra Digital Forensics Suite — Forensic Audio Examination Report", title_style))
+    story.append(Paragraph("Garuda Digital Forensics Suite — Forensic Audio Examination Report", title_style))
     meta_sub = (
         f"<b>Report ID:</b> {report_id} &nbsp;|&nbsp; "
         f"<b>Evidence ID:</b> {evidence.get('id', 'N/A')} &nbsp;|&nbsp; "
@@ -968,7 +968,7 @@ def generate_audio_pdf_report(
 
     disclaimer = (
         "<b>SWGDE & ISO/IEC 27037 FORENSIC ADMISSIBILITY STATEMENT:</b><br/>"
-        "This audio examination report was generated programmatically by the EviSutra Digital Forensics Suite v0.2.0. "
+        "This audio examination report was generated programmatically by the Garuda Digital Forensics Suite v0.2.0. "
         "Cryptographic digests substantiate that the byte stream examined was identical to the evidence deposited at intake. "
         "Spectral flux cut detections, digital silence gap measurements, and ambient noise floor estimation provide empirical "
         "measurements for certified forensic audio examiner review and do not constitute an autonomous claim of criminal intent "

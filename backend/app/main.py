@@ -10,7 +10,7 @@ init_db()
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.VERSION,
-    description="EviSutra Digital Forensics Engine & Integrity Verification API (Bihar Cyber Hackathon 2026 - PS-05)",
+    description="Garuda Digital Forensics Engine & Integrity Verification API (Bihar Cyber Hackathon 2026 - PS-05)",
     docs_url="/docs",
     redoc_url="/redoc",
 )
@@ -25,7 +25,7 @@ app.add_middleware(
 )
 
 # Mount versioned API routes under /api/v1
-api_v1 = FastAPI(title="EviSutra API v1")
+api_v1 = FastAPI(title="Garuda API v1")
 api_v1.include_router(health.router)
 api_v1.include_router(evidence.router)
 api_v1.include_router(analysis.router)

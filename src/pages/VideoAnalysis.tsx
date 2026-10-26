@@ -254,7 +254,7 @@ export function VideoAnalysis() {
               {analysisData && (
                 <a
                   href={api.getVideoReportUrl(selectedVideo.id)}
-                  download={`EviSutra_Video_Report_${selectedVideo.original_filename}.pdf`}
+                  download={`Garuda_Video_Report_${selectedVideo.original_filename}.pdf`}
                   className="inline-flex"
                 >
                   <Button

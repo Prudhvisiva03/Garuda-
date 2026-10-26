@@ -57,7 +57,7 @@ export function Sidebar({ collapsed, mobileOpen, onMobileClose }: SidebarProps) 
           </div>
           {(!collapsed || mobileOpen) && (
             <div className="flex flex-col min-w-0">
-              <span className="text-sm font-bold text-slate-900 tracking-wide truncate">EviSutra</span>
+              <span className="text-sm font-bold text-slate-900 tracking-wide truncate">Garuda</span>
               <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase">Forensics</span>
             </div>
           )}
@@ -103,16 +103,16 @@ export function Sidebar({ collapsed, mobileOpen, onMobileClose }: SidebarProps) 
       {/* Bottom Area — Version Info */}
       <div className="p-3 border-t border-slate-200">
         {collapsed && !mobileOpen ? (
-          <div className="flex justify-center" title="EviSutra v0.1.0-dev">
+          <div className="flex justify-center" title="Garuda Forensics v2.4">
             <span className="px-1.5 py-0.5 text-[10px] font-mono text-cyan-600 bg-slate-100 rounded border border-slate-200">
-              v0.1
+              v2.4
             </span>
           </div>
         ) : (
           <div className="flex items-center justify-between px-2.5 py-2 rounded-md bg-slate-50 border border-slate-200 text-xs text-slate-500">
-            <span className="text-slate-500 font-medium truncate">EviSutra Core</span>
+            <span className="text-slate-500 font-medium truncate">Garuda Core</span>
             <span className="font-mono text-cyan-600 text-[11px] bg-white px-1.5 py-0.5 rounded border border-slate-200 flex-shrink-0">
-              v0.1.0-dev
+              v2.4-saas
             </span>
           </div>
         )}

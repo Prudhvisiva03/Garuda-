@@ -270,7 +270,7 @@ def download_video_forensic_report(evidence_id: str):
 
     return FileResponse(
         path=str(report_pdf_path),
-        filename=f"EviSutra_Video_Forensics_{ev_dict['original_filename']}.pdf",
+        filename=f"Garuda_Video_Forensics_{ev_dict['original_filename']}.pdf",
         media_type="application/pdf",
     )
 

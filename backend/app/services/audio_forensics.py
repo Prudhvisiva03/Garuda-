@@ -252,7 +252,7 @@ def generate_spectrogram_artifact(
     ax1.plot(time_axis[::step], y[::step], color="#0284c7", linewidth=0.6, alpha=0.9)
     ax1.set_ylabel("Amplitude", fontsize=8, fontweight="bold")
     ax1.set_title(
-        f"EviSutra Audio Forensics — Waveform & Spectral Density [{evidence_id}]",
+        f"Garuda Audio Forensics — Waveform & Spectral Density [{evidence_id}]",
         fontsize=10,
         fontweight="bold",
         pad=8,

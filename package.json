@@ -1,9 +1,9 @@
 {
-  "name": "evisutra",
+  "name": "garuda",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "EviSutra — Digital Evidence Integrity & Forensics Platform",
+  "description": "Garuda — Digital Evidence Integrity & Forensics Platform",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

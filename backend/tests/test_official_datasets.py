@@ -32,7 +32,7 @@ def dataset_root() -> Path:
     try:
         return get_dataset_dir()
     except FileNotFoundError:
-        pytest.skip("Official hackathon datasets not found. Set EVISUTRA_TEST_DATA_DIR to run.")
+        pytest.skip("Official hackathon datasets not found. Set GARUDA_TEST_DATA_DIR to run.")
 
 
 def test_official_image_pair_1_metadata_and_near_identical_pixels(dataset_root: Path):

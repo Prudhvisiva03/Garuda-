@@ -42,13 +42,13 @@ from backend.app.main import app
 
 
 def get_dataset_dir() -> Path:
-    """Resolve dataset directory via EVISUTRA_TEST_DATA_DIR or local fallback."""
-    env_dir = os.environ.get("EVISUTRA_TEST_DATA_DIR")
+    """Resolve dataset directory via GARUDA_TEST_DATA_DIR, EVISUTRA_TEST_DATA_DIR, or local fallback."""
+    env_dir = os.environ.get("GARUDA_TEST_DATA_DIR") or os.environ.get("EVISUTRA_TEST_DATA_DIR")
     if env_dir:
         p = Path(env_dir)
         if p.exists():
             return p
-        raise FileNotFoundError(f"EVISUTRA_TEST_DATA_DIR was set to '{env_dir}', but directory does not exist.")
+        raise FileNotFoundError(f"GARUDA_TEST_DATA_DIR was set to '{env_dir}', but directory does not exist.")
 
     fallbacks = [
         Path("test_datasets"),

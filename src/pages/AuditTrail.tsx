@@ -1,4 +1,4 @@
-// EviSutra Law Enforcement Audit Trail & Chain of Custody Log
+// Garuda Law Enforcement Audit Trail & Chain of Custody Log
 // Immutable digital forensics activity logging for legal court admissibility.
 
 import { useState, useEffect } from 'react';

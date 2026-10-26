@@ -274,7 +274,7 @@ def download_audio_forensic_report(evidence_id: str):
 
     return FileResponse(
         path=str(report_pdf_path),
-        filename=f"EviSutra_Audio_Forensics_{ev_dict['original_filename']}.pdf",
+        filename=f"Garuda_Audio_Forensics_{ev_dict['original_filename']}.pdf",
         media_type="application/pdf",
     )
 

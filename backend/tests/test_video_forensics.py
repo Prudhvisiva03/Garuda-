@@ -1,5 +1,5 @@
 """
-Automated Pytest Suite for EviSutra Video Forensics Engine
+Automated Pytest Suite for Garuda Video Forensics Engine
 Complies with SWGDE & ISO/IEC 27037 standards:
 - MP4 container intake & cryptographic hashing
 - Secondary write verification & vault tamper detection

@@ -252,7 +252,7 @@ export function AudioAnalysis() {
               {analysisData && (
                 <a
                   href={api.getAudioReportUrl(selectedAudio.id)}
-                  download={`EviSutra_Audio_Report_${selectedAudio.original_filename}.pdf`}
+                  download={`Garuda_Audio_Report_${selectedAudio.original_filename}.pdf`}
                   className="inline-flex"
                 >
                   <Button

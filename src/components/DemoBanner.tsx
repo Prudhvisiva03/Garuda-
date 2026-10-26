@@ -40,7 +40,7 @@ export function DemoBanner() {
       <div className="bg-emerald-50 border-b border-emerald-200 px-4 py-2 flex items-center justify-center gap-2">
         <ShieldCheck className="h-4 w-4 text-emerald-600 flex-shrink-0" />
         <p className="text-xs text-emerald-800 font-medium">
-          <strong className="font-semibold tracking-wide">EVISUTRA FORENSIC VAULT ACTIVE:</strong> {evidenceCount} custody-verified evidence item{evidenceCount === 1 ? '' : 's'} secured with SHA-256 integrity | Image ELA/SIFT, Video Temporal Continuity &amp; Audio Synthesis Engines Operational.
+          <strong className="font-semibold tracking-wide">GARUDA FORENSIC VAULT ACTIVE:</strong> {evidenceCount} custody-verified evidence item{evidenceCount === 1 ? '' : 's'} secured with SHA-256 integrity | Image ELA/SIFT, Video Temporal Continuity &amp; Audio Synthesis Engines Operational.
         </p>
       </div>
     );
@@ -51,7 +51,7 @@ export function DemoBanner() {
       <div className="bg-sky-50 border-b border-sky-200 px-4 py-2 flex items-center justify-center gap-2">
         <Info className="h-4 w-4 text-sky-600 flex-shrink-0" />
         <p className="text-xs text-sky-800 font-medium">
-          <strong className="font-semibold tracking-wide">EVISUTRA FORENSIC ENGINES ONLINE:</strong> Multi-modal evidence intake ready for Image, Video, and Voice authenticity verification.
+          <strong className="font-semibold tracking-wide">GARUDA FORENSIC ENGINES ONLINE:</strong> Multi-modal evidence intake ready for Image, Video, and Voice authenticity verification.
         </p>
       </div>
     );

@@ -1,4 +1,4 @@
-// EviSutra Dashboard — Real Health & Evidence Metrics with Demo Fallbacks
+// Garuda Dashboard — Real Health & Evidence Metrics with Demo Fallbacks
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';

@@ -18,7 +18,7 @@ const activeSecurityStandards = [
 export function Settings() {
   const [activeTab, setActiveTab] = useState('workspace');
   const [workspaceName, setWorkspaceName] = useState('Bihar State Cyber Crime Investigation Unit');
-  const [workspaceDesc, setWorkspaceDesc] = useState('EviSutra multi-modal digital evidence integrity, authenticity verification & analysis workbench.');
+  const [workspaceDesc, setWorkspaceDesc] = useState('Garuda multi-modal digital evidence integrity, authenticity verification & analysis workbench.');
 
   const settingsTabs = [
     { id: 'workspace', label: 'Workspace' },
@@ -118,14 +118,14 @@ export function Settings() {
       )}
 
       {activeTab === 'about' && (
-        <Card title="About EviSutra">
+        <Card title="About Garuda">
           <div className="space-y-4 max-w-xl">
             <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
               <div className="w-10 h-10 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900">EviSutra</h3>
+                <h3 className="text-base font-bold text-slate-900">Garuda</h3>
                 <p className="text-xs text-slate-500">
                   Digital Evidence Authenticity &amp; Integrity Verification Platform
                 </p>
@@ -135,7 +135,7 @@ export function Settings() {
             <dl className="divide-y divide-slate-100 text-xs">
               <div className="py-2.5 flex justify-between">
                 <dt className="text-slate-500">Product</dt>
-                <dd className="font-mono text-cyan-600 font-medium">EviSutra Enterprise v2.4 (Bihar Cyber Hackathon Edition)</dd>
+                <dd className="font-mono text-cyan-600 font-medium">Garuda Enterprise v2.4 (Bihar Cyber Hackathon Edition)</dd>
               </div>
               <div className="py-2.5 flex justify-between">
                 <dt className="text-slate-500">Platform Stage</dt>

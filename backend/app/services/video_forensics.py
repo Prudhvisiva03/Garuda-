@@ -1,5 +1,5 @@
 """
-EviSutra Video Forensics Engine
+Garuda Video Forensics Engine
 Complies with SWGDE & ISO/IEC 27037 standards for digital video evidence analysis:
 1. Container vs Decoded Elementary Stream Timing Verification (PTS/DTS, mvhd atom skew).
 2. Temporal Cut / Splicing Detection via 3D Color Histogram Bhattacharyya distance with adaptive Z-score outlier detection and static CCTV pixel difference analysis.

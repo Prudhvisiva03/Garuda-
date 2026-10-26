@@ -1,4 +1,4 @@
-# EviSutra Image Forensics Engine Dependencies
+# Garuda Forensics Engine Dependencies
 # Requires Python 3.10+ (Tested on Python 3.12)
 
 fastapi>=0.115.0

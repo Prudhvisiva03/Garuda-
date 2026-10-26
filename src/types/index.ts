@@ -1,4 +1,4 @@
-// EviSutra — Type Definitions
+// Garuda — Type Definitions
 // Client-side data model. Backend model may differ.
 
 export type CaseStatus = 'open' | 'in-progress' | 'pending-review' | 'closed' | 'archived';

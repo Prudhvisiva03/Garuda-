@@ -1,4 +1,4 @@
-// EviSutra Forensics API Client
+// Garuda Forensics API Client
 
 export interface ApiEvidence {
   id: string;

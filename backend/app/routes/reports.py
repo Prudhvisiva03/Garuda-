@@ -144,5 +144,5 @@ def download_report(evidence_id: str):
     return FileResponse(
         path=str(report_path),
         media_type="application/pdf",
-        filename=f"EviSutra_Forensic_Report_{evidence_id}.pdf",
+        filename=f"Garuda_Forensic_Report_{evidence_id}.pdf",
     )

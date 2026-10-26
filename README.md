@@ -1,4 +1,4 @@
-# EviSutra — Digital Evidence Authenticity & Integrity Verification Platform
+# Garuda — Digital Evidence Authenticity & Integrity Verification Platform
 
 > **Bihar Cyber Hackathon 2026** — Problem Statement PS-05  
 > Operational Multi-Modal Digital Forensics & Court Admissibility Suite (Section 65B Indian Evidence Act / Section 63 BSA 2023)
@@ -7,7 +7,7 @@
 
 ## 🌟 Platform Capabilities
 
-EviSutra is a zero-demo, fully operational digital forensics platform designed for Indian law enforcement, cyber crime cells, and forensic examiners. It features deterministic, mathematically explainable signal processing pipelines without black-box AI claims.
+**Garuda** is an enterprise-ready, zero-demo, fully operational SaaS digital forensics platform designed for Indian law enforcement, cyber crime cells, and forensic examiners. It features deterministic, mathematically explainable signal processing pipelines without black-box AI claims.
 
 | Forensic Modality / Engine | Status | Implementation Details |
 |---|---|---|
@@ -39,7 +39,16 @@ EviSutra is a zero-demo, fully operational digital forensics platform designed f
 - Node.js v18+ and npm v9+
 - Python 3.10+ (Tested on Python 3.12)
 
-### 1. Start the Backend Forensic Server
+### Option A: One-Click Windows Launcher
+Double-click `run_garuda.bat` or run:
+```cmd
+run_garuda.bat
+```
+This automatically verifies dependencies and starts both the FastAPI backend (`http://localhost:8000`) and Vite frontend (`http://localhost:5173`).
+
+### Option B: Manual Startup
+
+#### 1. Start the Backend Forensic Server
 ```bash
 # Navigate to project root
 cd Digital-Forensics
@@ -49,7 +58,7 @@ python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 Interactive Swagger API documentation: `http://localhost:8000/docs`.
 
-### 2. Start the Frontend Application
+#### 2. Start the Frontend Application
 ```bash
 # In another terminal:
 cd Digital-Forensics

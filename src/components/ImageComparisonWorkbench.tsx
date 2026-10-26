@@ -1,4 +1,4 @@
-// EviSutra — Original vs Cropped Image Comparison Workbench
+// Garuda — Original vs Cropped Image Comparison Workbench
 // Real OpenCV SIFT feature detection, Lowe's ratio test, and RANSAC homography
 
 import { useState, useEffect } from 'react';

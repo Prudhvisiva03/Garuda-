@@ -1,4 +1,4 @@
-// EviSutra Operational Forensics Data Store
+// Garuda Operational Forensics Data Store
 // Law enforcement case fixtures, verified evidence records, and cryptographic audit trail.
 
 import type {

@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 class Settings(BaseSettings):
-    APP_NAME: str = "EviSutra Forensics Engine"
+    APP_NAME: str = "Garuda Forensics Engine"
     API_V1_STR: str = "/api/v1"
     VERSION: str = "0.2.0-alpha"
     
@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     EVIDENCE_DIR: Path = STORAGE_DIR / "evidence"
     ARTIFACTS_DIR: Path = STORAGE_DIR / "artifacts"
     REPORTS_DIR: Path = STORAGE_DIR / "reports"
-    DB_PATH: Path = STORAGE_DIR / "evisutra.db"
+    DB_PATH: Path = STORAGE_DIR / "garuda.db"
     
     # Upload limits & constraints
     MAX_UPLOAD_SIZE: int = 10 * 1024 * 1024  # 10 MiB limit
@@ -35,7 +35,7 @@ class Settings(BaseSettings):
         "http://127.0.0.1:3000",
     ]
 
-    model_config = {"env_prefix": "EVISUTRA_"}
+    model_config = {"env_prefix": "GARUDA_"}
 
 settings = Settings()
 

@@ -1,4 +1,4 @@
-// EviSutra Reports Page — Downloadable Examination Reports
+// Garuda Reports Page — Downloadable Examination Reports
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
